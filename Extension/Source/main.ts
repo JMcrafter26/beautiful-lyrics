@@ -16,7 +16,6 @@ import {
 } from "@Spices/Spicetify/Services/Session.ts"
 
 // Singletons
-import "./DiscordVerification/mod.ts"
 import "./LyricViews/mod.ts"
 
 // Shared Methods

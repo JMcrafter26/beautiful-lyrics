@@ -67,7 +67,12 @@ export default async function(forceToVersion?: true) {
 		.replace("-2", `${BuildReleaseLocation.VersionCheckUrl}/${encodeURIComponent(BuildName)}`)
 		.replace("-3", (forceToVersion ? `"${BuildVersion}"` : "undefined"))
 	)
+	await Deno.mkdir(join("./Builds", "Release"), { recursive: true })
 	await Deno.writeTextFile(join("./Builds", "Release", `${BuildName}.mjs`), autoUpdateFile)
+
+	// Update the version file so the auto-updater can discover the latest version
+	await Deno.mkdir(join("./Builds", "version"), { recursive: true })
+	await Deno.writeTextFile(join("./Builds", "version", BuildName), BuildVersion)
 
 	// Display that we've finished
 	DisplayDoneStatus()
