@@ -371,6 +371,7 @@ const LoadSongLyrics = () => {
 							GetSpotifyAccessToken()
 							.then(
 								accessToken => fetch(
+									// TODO: This backend is down. Replace with a self-hosted or alternative lyrics API.
 									`https://beautiful-lyrics.socalifornian.live/lyrics/${encodeURIComponent(songAtUpdate.Id)}`,
 									// `http://localhost:8787/lyrics/${encodeURIComponent(songAtUpdate.Id)}`,
 									{

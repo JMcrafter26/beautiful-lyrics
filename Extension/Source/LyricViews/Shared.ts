@@ -97,7 +97,7 @@ export const GetCoverArtForSong = (): [string, (number | undefined)] => {
 	)
 	if (coverArt === undefined) {
 		return [
-			"https://images.socalifornian.live/SongPlaceholderFull.png",
+			"https://raw.githubusercontent.com/JMcrafter26/beautiful-lyrics/main/Extension/Images/SongPlaceholderFull.png",
 			(75 + ((360 - 75) * seedrandom(Song?.Uri)()))
 		]
 	} else {

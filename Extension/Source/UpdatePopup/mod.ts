@@ -27,7 +27,7 @@ const PopupElement = `
 		<video
 			autoplay loop muted playsinline
 			class="BackgroundRenderingImprovements"
-			src="https://images.socalifornian.live/BetterBackgroundRenderingPerformance.webm"
+			src="https://raw.githubusercontent.com/JMcrafter26/beautiful-lyrics/main/Assets/Videos/BetterBackgroundRenderingPerformance.webm"
 		></video>
 	</div>
 	<div class="PopupButtons">

@@ -44,6 +44,7 @@ OnSpotifyReady
 			)
 
 			const result = await SpotifyFetch(
+				// TODO: This backend is down. Replace with a self-hosted or alternative Discord verification endpoint.
 				`https://beautiful-lyrics.socalifornian.live/Discord/Spotify/Verify?DiscordId=${discordId}`
 			)
 			if (result.status !== 200) {
