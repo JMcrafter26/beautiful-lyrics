@@ -6,7 +6,8 @@
 		"main": "./Extension/Builds/Release/beautiful-lyrics.mjs",
 		"readme": "README.md",
 		"authors": [
-			{ "name": "SoCalifornian", "url": "https://github.com/surfbryce" }
+			{ "name": "SoCalifornian", "url": "https://github.com/surfbryce" },
+			{ "name": "Cufiy", "url": "https://github.com/JMcrafter26" }
 		],
 		"tags": [
 			"lyrics",
