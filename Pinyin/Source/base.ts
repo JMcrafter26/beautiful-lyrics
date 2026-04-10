@@ -1,4 +1,4 @@
-const PinyinURL = "https://pinyin.socalifornian.live"
+const PinyinURL = "https://raw.githubusercontent.com/JMcrafter26/beautiful-lyrics/main/Pinyin/Source/Data"
 const GetZIDictionary = (): Promise<Record<number, string>> => (
 	import(`${PinyinURL}/dict-zi.mjs`).then(module => module.default)
 ) // 单个汉字拼音数据。

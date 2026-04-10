@@ -13,7 +13,6 @@ import PostCSS from "npm:postcss@8.4.38"
 import AutoPrefixer from "npm:autoprefixer@10.4.19"
 import CSSNano from "npm:cssnano@6.1.2"
 import CSSAdvancedNanoPreset from "npm:cssnano-preset-advanced@6.1.2"
-console.log("HELLO!")
 // Helper functions
 const WriteTextFile = (path: string, contents: string): Promise<void> => {
 	return (
@@ -55,11 +54,14 @@ export default async (bundleConfiguration: BundleConfiguration = {}): Promise<un
 	// Define where our build-directory is
 	const buildDirectory = (
 		(bundleType === "Offline") ? undefined // Offline builds get saved outside of this module
-		: join("./Builds", ((bundleType === "Release") ? "Release" : "Test"))
+		: join("./Builds", ((bundleType === "Release") ? "Versioned" : "Test"))
 	)
 
-	// Wipe our build-directory (if it exists)
-	if (buildDirectory !== undefined) {
+	// The output base-name for the bundle files
+	const outputBaseName = (bundleType === "Release") ? BuildName : "bundle"
+
+	// Wipe our build-directory for non-Release types (Test). Release accumulates versioned files.
+	if (buildDirectory !== undefined && bundleType !== "Release") {
 		// First, ensure it exists
 		await ensureDir(buildDirectory)
 
@@ -177,7 +179,7 @@ export default async (bundleConfiguration: BundleConfiguration = {}): Promise<un
 				entryPoints: ["./Source/main.ts"],
 				outfile: (
 					(buildDirectory === undefined) ? undefined
-					: join(buildDirectory, `bundle@${versionIdentifier}.mjs`)
+					: join(buildDirectory, `${outputBaseName}@${versionIdentifier}.mjs`)
 				),
 
 				plugins,
@@ -224,7 +226,7 @@ export default async (bundleConfiguration: BundleConfiguration = {}): Promise<un
 	} else {
 		return (
 			Promise.all(buildPromises)
-			.then(_ => WriteTextFile(join(buildDirectory, `bundle@${versionIdentifier}.css`), rawCSS.join("\n")))
+			.then(_ => WriteTextFile(join(buildDirectory, `${outputBaseName}@${versionIdentifier}.css`), rawCSS.join("\n")))
 		)
 	}
 }

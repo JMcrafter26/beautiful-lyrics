@@ -17,7 +17,7 @@ export const init = (): Promise<void> => {
 		(resolve, reject) => {
 			Kuromoji.builder(
 				{
-					dicPath: "https://kuromoji.socalifornian.live"
+					dicPath: "https://cdn.jsdelivr.net/npm/kuromoji/dict"
 				}
 			).build(
 				(error, analyzer) => {

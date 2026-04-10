@@ -27,14 +27,10 @@ const PopupElement = `
 		<video
 			autoplay loop muted playsinline
 			class="BackgroundRenderingImprovements"
-			src="https://images.socalifornian.live/BetterBackgroundRenderingPerformance.webm"
+			src="https://raw.githubusercontent.com/JMcrafter26/beautiful-lyrics/main/Assets/Videos/BetterBackgroundRenderingPerformance.webm"
 		></video>
 	</div>
 	<div class="PopupButtons">
-		<button class="DiscordButton">
-			<img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d7f4ef6498ac018f2c55_Symbol.svg">
-			<span>Discord</span>
-		</button>
 		<button class="CloseButton">
 			<span>Close</span>
 		</button>
@@ -70,15 +66,7 @@ export default function() {
 
 	// Popup Buttons
 	{
-		const discordButtonLabel = popupElement.querySelector<HTMLButtonElement>(".DiscordButton")!
 		const closeButtonLabel = popupElement.querySelector<HTMLButtonElement>(".CloseButton")!
-	
-		const discordButton = popupMaid.Give(new Button(discordButtonLabel))
-		discordButton.Clicked.Connect(
-			() => {
-				globalThis.open("https://discord.com/invite/884XC8Fsfa", "_blank")
-			}
-		)
 
 		const closeButton = popupMaid.Give(new Button(closeButtonLabel))
 		closeButton.Clicked.Connect(
